@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": null,
+    "password": "Merdeka123~",
     "database": "branchise",
     "host": "127.0.0.1",
     "dialect": "mysql"
