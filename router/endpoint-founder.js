@@ -30,7 +30,7 @@ app.get("/:id", authFounder, async(req,res)=>{
 
 app.post("/", async(req,res)=>{
     let data = {
-        name_founder: req.body.name_founder,
+        name: req.body.name,
         email: req.body.email,
         username: req.body.username,
         password: md5(req.body.password),
@@ -52,7 +52,7 @@ app.post("/", async(req,res)=>{
 app.put("/",authFounder, async(req,res)=>{
     let param = await {id_founder:req.body.id_founder}
     let data = await {
-        name_founder: req.body.name_founder,
+        name: req.body.name,
         email: req.body.email,
         username: req.body.username,
         password: md5(req.body.password),
