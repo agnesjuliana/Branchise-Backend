@@ -89,16 +89,22 @@ app.post("/", upload.single("image"), async(req,res)=>{
 //     })
 // })
 
-// app.delete("/:id", async(req,res)=>{
-//     let param = {id:req.params.id}
-//     founder.destroy({where:param})
-//     .then(result=>{
-//         res.json({message: "data has been deleted"})
-//     })
-//     .catch(error=>{
-//         res.json({message: error.message})
-//     })
-// })
+app.delete("/:id", async (req, res) => {
+    let param = { id_franchise: req.params.id }
+    let result = await siswa.findOne({ where: param })
+    let oldImageName = result.image
+
+    let dir = path.join(__dirname, "../img/img_franchise", oldImageName)
+    fs.unlink(dir, err => console.log(err))
+
+    franchise.destroy({ where: param })
+        .then(result => {
+            res.json({ message: "data has been destroyed" })
+        })
+        .catch(error => {
+            res.json({ message: error.message })
+        })
+})
 
 
 
