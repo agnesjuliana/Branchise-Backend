@@ -91,7 +91,7 @@ app.post("/", upload.single("image"), async(req,res)=>{
 
 app.delete("/:id", async (req, res) => {
     let param = { id_franchise: req.params.id }
-    let result = await siswa.findOne({ where: param })
+    let result = await franchise.findOne({ where: param })
     let oldImageName = result.image
 
     let dir = path.join(__dirname, "../img/img_franchise", oldImageName)
